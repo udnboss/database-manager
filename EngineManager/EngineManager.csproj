@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD8E84D7-1DD3-4410-A5FC-06A33EFEB1FE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EngineManager</RootNamespace>
+    <AssemblyName>EngineManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActiproSoftware.Shared.Net20, Version=1.0.102.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ActiproSoftware.Shared.Net20.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiproSoftware.SyntaxEditor.Net20, Version=4.0.283.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ActiproSoftware.SyntaxEditor.Net20.dll</HintPath>
+    </Reference>
+    <Reference Include="ActiproSoftware.WinUICore.Net20, Version=1.0.102.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ActiproSoftware.WinUICore.Net20.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE">
+      <HintPath>F:\Ali\Documents\Visual Studio 2013\Projects\SqlInstaller\GLEE\bin\Microsoft.GLEE.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE.Drawing">
+      <HintPath>F:\Ali\Documents\Visual Studio 2013\Projects\SqlInstaller\GLEE\bin\Microsoft.GLEE.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE.GraphViewerGDI">
+      <HintPath>F:\Ali\Documents\Visual Studio 2013\Projects\SqlInstaller\GLEE\bin\Microsoft.GLEE.GraphViewerGDI.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="class\db_objects\DB.cs" />
+    <Compile Include="class\db_objects\DBCheckConstraint.cs" />
+    <Compile Include="class\db_objects\DBColumn.cs" />
+    <Compile Include="class\db_objects\DBCommand.cs" />
+    <Compile Include="class\db_objects\DBConnection.cs" />
+    <Compile Include="class\db_objects\DBConstraint.cs" />
+    <Compile Include="class\db_objects\DBContainsColumns.cs" />
+    <Compile Include="class\db_objects\DBDatabaseTrigger.cs" />
+    <Compile Include="class\db_objects\DBDefaultConstraint.cs" />
+    <Compile Include="class\db_objects\DBExtendedProperty.cs" />
+    <Compile Include="class\db_objects\DBFKConstraint.cs" />
+    <Compile Include="class\db_objects\DBFolder.cs" />
+    <Compile Include="class\db_objects\DBFunction.cs" />
+    <Compile Include="class\db_objects\DBMigration.cs" />
+    <Compile Include="class\db_objects\DBMigrationScript.cs" />
+    <Compile Include="class\db_objects\DBObject.cs" />
+    <Compile Include="class\db_objects\DBPermission.cs" />
+    <Compile Include="class\db_objects\DBPKConstraint.cs" />
+    <Compile Include="class\db_objects\DBProject.cs" />
+    <Compile Include="class\db_objects\DBRole.cs" />
+    <Compile Include="class\db_objects\DBSchemaObject.cs" />
+    <Compile Include="class\editors\AdditionalColumnListTypeConverter.cs" />
+    <Compile Include="class\editors\BasicProcedureListTypeConverter.cs" />
+    <Compile Include="class\editors\ColumnListTypeConverter.cs" />
+    <Compile Include="class\editors\ComputedColumnListTypeConverter.cs" />
+    <Compile Include="class\editors\DBIconClassEditor.cs" />
+    <Compile Include="class\editors\IStatementListTypeConverter.cs" />
+    <Compile Include="class\editors\ListTypeConverter.cs" />
+    <Compile Include="class\editors\MultiSelectEditor.cs" />
+    <Compile Include="class\editors\RoleListTypeConverter.cs" />
+    <Compile Include="class\editors\SecurityPolicyListTypeConverter.cs" />
+    <Compile Include="class\editors\SQLEditor.cs" />
+    <Compile Include="class\editors\StringListTypeConverter.cs" />
+    <Compile Include="class\editors\WorkflowStateListTypeConverter.cs" />
+    <Compile Include="class\extended_objects\RowAction.cs" />
+    <Compile Include="class\extended_objects\RowActionDefinition.cs" />
+    <Compile Include="class\db_objects\DBSchema.cs" />
+    <Compile Include="class\db_objects\DBStoredProcedure.cs" />
+    <Compile Include="class\db_objects\DBTable.cs" />
+    <Compile Include="class\db_objects\DBTrigger.cs" />
+    <Compile Include="class\extended_objects\TriggerConstraint.cs" />
+    <Compile Include="class\db_objects\DBUniqueConstraint.cs" />
+    <Compile Include="class\db_objects\DBUser.cs" />
+    <Compile Include="class\db_objects\DBUserDataType.cs" />
+    <Compile Include="class\db_objects\DBView.cs" />
+    <Compile Include="class\extended_objects\WorkflowState.cs" />
+    <Compile Include="class\extended_objects\WorkflowTransition.cs" />
+    <Compile Include="class\interfaces\IContainsColumns.cs" />
+    <Compile Include="class\interfaces\IGenerateGraph.cs" />
+    <Compile Include="class\interfaces\IGenerateTreeNode.cs" />
+    <Compile Include="class\interfaces\IRefreshableObject.cs" />
+    <Compile Include="class\interfaces\ITableOwned.cs" />
+    <Compile Include="class\managers\DBConnectionManager.cs" />
+    <Compile Include="class\managers\DBManager.cs" />
+    <Compile Include="class\managers\DBObjectManager.cs" />
+    <Compile Include="class\managers\DBProjectManager.cs" />
+    <Compile Include="class\managers\DBSchemaManager.cs" />
+    <Compile Include="class\managers\DBTableManager.cs" />
+    <Compile Include="class\managers\DBViewManager.cs" />
+    <Compile Include="class\syntax\RTFSQL.cs" />
+    <Compile Include="class\attributes\ShowInManage.cs" />
+    <Compile Include="class\attributes\ShowInTree.cs" />
+    <Compile Include="class\syntax\JScriptDynamicSyntaxLanguage.cs" />
+    <Compile Include="class\syntax\JsonDynamicSyntaxLanguage.cs" />
+    <Compile Include="class\others\MyBindingList.cs" />
+    <Compile Include="class\others\Snapshot.cs" />
+    <Compile Include="class\others\Util.cs" />
+    <Compile Include="class\extended_objects\Workflow.cs" />
+    <Compile Include="class\syntax\XmlDynamicSyntaxLanguage.cs" />
+    <Compile Include="forms\AddNewColumnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\AddNewColumnForm.Designer.cs">
+      <DependentUpon>AddNewColumnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class\extended_objects\BasicProcedure.cs" />
+    <Compile Include="class\extended_objects\BasicProcedureDefinition.cs" />
+    <Compile Include="class\extended_objects\SQLColumnValuePair.cs" />
+    <Compile Include="forms\CompressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\CompressForm.Designer.cs">
+      <DependentUpon>CompressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ConvertToLookupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ConvertToLookupForm.Designer.cs">
+      <DependentUpon>ConvertToLookupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DBCommandPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\DBCommandPreview.Designer.cs">
+      <DependentUpon>DBCommandPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\DBObjectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controls\DBObjectControl.Designer.cs">
+      <DependentUpon>DBObjectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class\extended_objects\AdditionalComputedColumn.cs" />
+    <Compile Include="class\extended_objects\AdditionalColumn.cs" />
+    <Compile Include="class\extended_objects\AdditionalColumnDefinition.cs" />
+    <Compile Include="class\extended_objects\SQLDeleteCommand.cs" />
+    <Compile Include="class\extended_objects\SQLDeleteCommandDefinition.cs" />
+    <Compile Include="forms\InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class\extended_objects\SQLInsertColumnValuePair.cs" />
+    <Compile Include="class\extended_objects\SQLInsertColumnValuePairDefinition.cs" />
+    <Compile Include="class\extended_objects\SQLInsertCommand.cs" />
+    <Compile Include="class\extended_objects\SQLInsertCommandDefinition.cs" />
+    <Compile Include="class\interfaces\ISecurityPolicyExpression.cs" />
+    <Compile Include="forms\ManageCheckConstraints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ManageCheckConstraints.Designer.cs">
+      <DependentUpon>ManageCheckConstraints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ManageRolePermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ManageRolePermissions.Designer.cs">
+      <DependentUpon>ManageRolePermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ManageRolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ManageRolesForm.Designer.cs">
+      <DependentUpon>ManageRolesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MultiSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MultiSelectForm.Designer.cs">
+      <DependentUpon>MultiSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\IconClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\IconClassForm.Designer.cs">
+      <DependentUpon>IconClassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ManageObjectPermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ManageObjectPermissions.Designer.cs">
+      <DependentUpon>ManageObjectPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ManageRelatedColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ManageRelatedColumns.Designer.cs">
+      <DependentUpon>ManageRelatedColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ManageRelationsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ManageRelationsForm.Designer.cs">
+      <DependentUpon>ManageRelationsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Migration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Migration.Designer.cs">
+      <DependentUpon>Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\NewMultiSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\NewMultiSelection.Designer.cs">
+      <DependentUpon>NewMultiSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class\extended_objects\BasicProcedureStatement.cs" />
+    <Compile Include="class\extended_objects\BasicProcedureStatementDefinition.cs" />
+    <Compile Include="class\extended_objects\SecurityPolicy.cs" />
+    <Compile Include="class\extended_objects\SecurityPolicyCondition.cs" />
+    <Compile Include="class\extended_objects\SecurityPolicyConditionDefinition.cs" />
+    <Compile Include="class\extended_objects\SecurityPolicyDefinition.cs" />
+    <Compile Include="class\extended_objects\SecurityPolicyQuestion.cs" />
+    <Compile Include="class\extended_objects\SecurityPolicyQuestionDefinition.cs" />
+    <Compile Include="forms\SelectTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SelectTableForm.Designer.cs">
+      <DependentUpon>SelectTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SQLEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SQLEditorForm.Designer.cs">
+      <DependentUpon>SQLEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class\extended_objects\SQLStatement.cs" />
+    <Compile Include="class\extended_objects\UniqueID.cs" />
+    <Compile Include="class\extended_objects\SQLUpdateCommand.cs" />
+    <Compile Include="class\extended_objects\SQLUpdateCommandDefinition.cs" />
+    <Compile Include="class\extended_objects\Validator.cs" />
+    <Compile Include="class\extended_objects\ValidatorDefinition.cs" />
+    <Compile Include="forms\WorkflowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\WorkflowForm.Designer.cs">
+      <DependentUpon>WorkflowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="class\syntax\SqlDynamicSyntaxLanguage.cs" />
+    <Compile Include="forms\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="forms\AddNewColumnForm.resx">
+      <DependentUpon>AddNewColumnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\CompressForm.resx">
+      <DependentUpon>CompressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ConvertToLookupForm.resx">
+      <DependentUpon>ConvertToLookupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\DBCommandPreview.resx">
+      <DependentUpon>DBCommandPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controls\DBObjectControl.resx">
+      <DependentUpon>DBObjectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ManageCheckConstraints.resx">
+      <DependentUpon>ManageCheckConstraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ManageRolePermissions.resx">
+      <DependentUpon>ManageRolePermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ManageRolesForm.resx">
+      <DependentUpon>ManageRolesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\MultiSelectForm.resx">
+      <DependentUpon>MultiSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\IconClassForm.resx">
+      <DependentUpon>IconClassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ManageObjectPermissions.resx">
+      <DependentUpon>ManageObjectPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ManageRelatedColumns.resx">
+      <DependentUpon>ManageRelatedColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ManageRelationsForm.resx">
+      <DependentUpon>ManageRelationsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Migration.resx">
+      <DependentUpon>Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\NewMultiSelection.resx">
+      <DependentUpon>NewMultiSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SelectTableForm.resx">
+      <DependentUpon>SelectTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SQLEditorForm.resx">
+      <DependentUpon>SQLEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\WorkflowForm.resx">
+      <DependentUpon>WorkflowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="forms\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="data\Connections.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="font\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\DataSources\TestForm.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sql\all_columns.sql" />
+    <Content Include="sql\all_objects.sql" />
+    <Content Include="sql\all_relations.sql" />
+    <None Include="sql\queries.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="xml\ActiproSoftware.JSON.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\ActiproSoftware.XML.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll\ActiproSoftware.Shared.Net20.dll" />
+    <Content Include="xml\ActiproSoftware.SQL.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dll\ActiproSoftware.SyntaxEditor.Net20.dll" />
+    <Content Include="dll\ActiproSoftware.WinUICore.Net20.dll" />
+    <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="img\arrow.png" />
+    <Content Include="img\column.png" />
+    <Content Include="img\connect.gif" />
+    <Content Include="img\constraint.gif" />
+    <Content Include="img\constraint2.jpg" />
+    <Content Include="img\database.gif" />
+    <Content Include="img\fk.png" />
+    <Content Include="img\folder_icon.gif" />
+    <Content Include="img\function.png" />
+    <Content Include="xml\icon_classes.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\id.png" />
+    <Content Include="img\lightning.png" />
+    <Content Include="img\loop.png" />
+    <Content Include="dll\Microsoft.GLEE.dll" />
+    <Content Include="dll\Microsoft.GLEE.Drawing.dll" />
+    <Content Include="dll\Microsoft.GLEE.GraphViewerGDI.dll" />
+    <Content Include="img\operation.png" />
+    <Content Include="img\pk.png" />
+    <Content Include="img\procedure.gif" />
+    <Content Include="img\project.png" />
+    <Content Include="img\schema.png" />
+    <Content Include="img\table.png" />
+    <Content Include="img\trigger.png" />
+    <Content Include="img\tr_delete.png" />
+    <Content Include="img\tr_insert.gif" />
+    <Content Include="img\tr_update.png" />
+    <Content Include="img\type.gif" />
+    <Content Include="img\unique.png" />
+    <Content Include="img\view.gif" />
+    <Content Include="img\warning.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,44 @@
+[
+  {
+    "Name": "Development",
+    "Server": "sv800617\\sql2012",
+    "Database": "fe",
+    "User": "PTIU",
+    "Password": "Migrate.12"
+  },
+  {
+    "Name": "Test",
+    "Server": "sv800507\\fe",
+    "Database": "fe",
+    "User": "PTIU",
+    "Password": "Migrate.12"
+  },
+  {
+    "Name": "Production",
+    "Server": "sv800545\\fe",
+    "Database": "fe",
+    "User": "PTIU",
+    "Password": "Migrate.12"
+  },
+  {
+    "Name": "Home",
+    "Server": "boss\\sql2014",
+    "Database": "fe",
+    "User": "PTIU",
+    "Password": "Migrate.12"
+  },
+  {
+    "Name": "Web",
+    "Server": "udnweb.ddns.net\\sql2016",
+    "Database": "est",
+    "User": "PTIU",
+    "Password": "Migrate.12"
+  },
+  {
+    "Name": "Living",
+    "Server": "livingroom-pc\\sql2014",
+    "Database": "est",
+    "User": "PTIU",
+    "Password": "Migrate.12"
+  }
+]

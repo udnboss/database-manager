@@ -1,0 +1,111 @@
+<SyntaxLanguage Key="JSON" LanguageDefinitionVersion="4.0" Secure="True" 
+				SyntaxLanguageTypeName="EngineManager.JScriptDynamicSyntaxLanguage, EngineManager"
+				xmlns="http://ActiproSoftware/SyntaxEditor/4.0/LanguageDefinition">
+
+	<!-- String Properties -->
+	<Properties>
+		<Property Key="Creator" Value="Actipro Software LLC" />
+		<Property Key="Copyright" Value="Copyright (c) 2001-2014 Actipro Software LLC.  All rights reserved." />
+	</Properties>
+
+	<!-- Triggers -->
+	<Triggers>
+		<KeyPressTrigger Key="MemberListTrigger" Character=".">
+			<KeyPressTriggerValidStates>
+				<KeyPressTriggerValidState State="DefaultState" />
+			</KeyPressTriggerValidStates>
+		</KeyPressTrigger>
+	</Triggers>
+
+	<!-- Highlighting Styles -->	
+	<Styles>
+		<Style Key="ReservedWordStyle" ForeColor="Blue" />
+		<Style Key="NumberStyle" ForeColor="Black" />
+		<Style Key="StringDelimiterStyle" ForeColor="Maroon" />
+		<Style Key="StringDefaultStyle" ForeColor="Maroon" />
+	</Styles>
+	
+	<!-- States -->
+	<States>
+		<!-- Code -->
+		<State Key="DefaultState">
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<!-- Whitespace -->
+				<RegexPatternGroup TokenKey="WhitespaceToken" PatternValue="{WhitespaceMacro}+" IsWhitespace="True" />
+				<!-- Line Terminators -->
+				<RegexPatternGroup TokenKey="LineTerminatorToken" PatternValue="{LineTerminatorMacro}" IsWhitespace="True" />
+				<!-- Brackets -->
+				<ExplicitPatternGroup Key="OpenCurlyBracePatternGroup" TokenKey="OpenCurlyBraceToken" PatternValue="{" EndBracket="CloseCurlyBracePatternGroup" />
+				<ExplicitPatternGroup Key="CloseCurlyBracePatternGroup" TokenKey="CloseCurlyBraceToken" PatternValue="}" StartBracket="OpenCurlyBracePatternGroup" />
+				<ExplicitPatternGroup Key="OpenSquareBracePatternGroup" TokenKey="OpenSquareBraceToken" PatternValue="[" EndBracket="CloseSquareBracePatternGroup" />
+				<ExplicitPatternGroup Key="CloseSquareBracePatternGroup" TokenKey="CloseSquareBraceToken" PatternValue="]" StartBracket="OpenSquareBracePatternGroup" />
+				<!-- Punctuation -->
+				<ExplicitPatternGroup TokenKey="PunctuationToken">
+					<ExplicitPatterns>
+						, :
+					</ExplicitPatterns>
+				</ExplicitPatternGroup>
+				<!-- Null -->
+				<ExplicitPatternGroup TokenKey="NullToken" Style="ReservedWordStyle" PatternValue="null" LookAhead="{NonWordMacro}|\z" CaseSensitivity="Sensitive" />
+				<!-- Booleans -->
+				<ExplicitPatternGroup TokenKey="BooleanToken" Style="ReservedWordStyle" LookAhead="{NonWordMacro}|\z" CaseSensitivity="Sensitive">
+					<ExplicitPatterns>
+						false true
+					</ExplicitPatterns>
+				</ExplicitPatternGroup>
+				<!-- Identifier -->
+				<RegexPatternGroup TokenKey="IdentifierToken" PatternValue="(_ | {AlphaMacro})({WordMacro})*" />
+				<!-- Numbers -->
+				<RegexPatternGroup TokenKey="NumberToken" Style="NumberStyle" PatternValue="\-? {DigitMacro}+ (\. {DigitMacro}+)? ([Ee] [\+\-]? {DigitMacro}+)?" LookAhead="{NonWordMacro}|\z" />
+			</PatternGroups>
+			<!-- Child States -->
+			<ChildStates>
+				<ChildState Key="DoubleQuoteStringState" />
+			</ChildStates>
+		</State>
+		
+		<!-- Double-Quote Strings -->
+		<State Key="DoubleQuoteStringState" TokenKey="DoubleQuoteStringDefaultToken" Style="StringDefaultStyle">
+			<!-- Scopes -->
+			<Scopes>
+				<Scope>
+					<ExplicitPatternGroup Type="StartScope" TokenKey="DoubleQuoteStringStartToken" Style="StringDelimiterStyle" PatternValue="&quot;" />
+					<ExplicitPatternGroup Type="EndScope" TokenKey="DoubleQuoteStringEndToken" Style="StringDelimiterStyle" PatternValue="&quot;" />	
+				</Scope>
+			</Scopes>
+			<!-- Patterns Groups -->
+			<PatternGroups>
+				<RegexPatternGroup TokenKey="DoubleQuoteStringEscapedCharacterToken" PatternValue="\\." />
+				<RegexPatternGroup TokenKey="DoubleQuoteStringDefaultToken" PatternValue="[^\\\&quot;]+" />
+			</PatternGroups>
+		</State>
+	</States>
+
+	<!-- Example Text -->
+	<ExampleText>
+		<![CDATA[{
+	"id" : 100,
+	"message" : "Sales target reached.",
+	"recipients" : [
+		{
+			"name" : "John Robinson",
+			"email" : "johnr@bigcompany.com",
+			"title" : "VP Sales and Marketing"
+		},
+		{
+			"name" : "Bob Pastor",
+			"email" : "bobp@bigcompany.com",
+			"title" : "Sales Manager"
+		},
+		{
+			"name" : "Margo Haim",
+			"email" : "margoh@bigcompany.com",
+			"title" : null
+		}
+	]
+}
+]]>
+	</ExampleText>
+		
+</SyntaxLanguage>
