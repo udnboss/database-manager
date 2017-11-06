@@ -43,7 +43,7 @@ namespace EngineManager
         public bool Output { get { return output; } set { output = value; } }
 
         [ReadOnly(true), Browsable(false)]
-        public bool IsFromSubTable { get { return this.Constraint != null ? (this.CurrentTable == this.Constraint.Parent ? false : true) : false;} }
+        public bool IsFromSubTable { get { return this.Constraint != null ? (this.CurrentTable == this.Constraint.Owner ? false : true) : false;} }
         [ReadOnly(true), Browsable(false)]
         public bool FromThisTable { get; set; }
         

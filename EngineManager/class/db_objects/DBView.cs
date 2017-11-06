@@ -13,11 +13,11 @@ namespace EngineManager
             this.type = DB.DBObjectType.View;
             this.DefinitionSQL = "SELECT {0} FROM {1}";
             this.OnAlreadyExists = DBOnExists.DropBeforePerformingAction;
-            this.Columns = new BindingList<DBColumn>();
-            this.ExtendedProperties = new List<DBExtendedProperty>();
+            this.Columns = new MyBindingList<DBColumn>(this);
+            this.ExtendedProperties = new MyBindingList<DBExtendedProperty>(this);
         }
-        public BindingList<DBColumn> Columns { get; set; }
-        public List<DBExtendedProperty> ExtendedProperties { get; set; }
+        public MyBindingList<DBColumn> Columns { get; set; }
+        public MyBindingList<DBExtendedProperty> ExtendedProperties { get; set; }
 
         private DBColumn default_sort;
         [DataMember, Category("Data"), Description("Default Sort Column")]

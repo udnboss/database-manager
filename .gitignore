@@ -3,3 +3,6 @@
 ################################################################################
 
 /EngineManager/obj
+/EngineManager/bin/Debug
+/EngineManager/.vs/EngineManager/v15
+/.vs

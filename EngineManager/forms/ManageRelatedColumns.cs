@@ -5,9 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace EngineManager
@@ -285,24 +282,6 @@ namespace EngineManager
             {
                 foreach (var uc in this.update_commands_definitions)
                 {
-                    
-                    //var c = new UpdateCommand
-                    //{
-                    //    ID = uc.ID,
-                    //    Table = table,
-                    //    Name = uc.Name,
-                    //    WherePolicy = table.AvailablePolicies.Where(p => p.ID == uc.WherePolicy).FirstOrDefault()
-                    //};
-
-                    //foreach (var cv in uc.ColumnsValues)
-                    //{
-                    //    c.ColumnsValues.Add(new ColumnValuePair {
-                    //        Table = table,
-                    //        Value = cv.Value,
-                    //        Column = table.Columns.Where(col=> col.Name == cv.Key).FirstOrDefault()
-                    //    });
-                    //}
-
                     table.UpdateCommands.Add(uc.GetObject(table));
                 }
             }
@@ -348,22 +327,6 @@ namespace EngineManager
             update_syntax(false);  
 
         }
-
-        //private SecurityPolicyCondition GetConditionFromDefinition(SecurityPolicyConditionDefinition d)
-        //{
-        //    var condition = new SecurityPolicyCondition {
-        //        Order = d.Order,
-        //        Question = table.SecurityPolicyQuestions.Where(q => q.ID == d.Question).FirstOrDefault()                
-        //        };
-
-        //    foreach (var scd in d.SubConditions)
-        //    {
-        //        condition.SubConditions.Add(GetConditionFromDefinition(scd));
-        //    }
-
-        //    return condition;
-        //}
-
 
         private void btn_add_current_Click(object sender, EventArgs e)
         {
@@ -1041,9 +1004,11 @@ order by id
 
                         //set schema reference if applicable
                         var schema_obj = db_obj as DBSchemaObject;
-                        
-                        if (parent_obj.Parent != null && parent_obj.Parent is DBSchema)
+
+                        if (schema_obj != null && parent_obj.Parent != null && parent_obj.Parent is DBSchema)
+                        {
                             schema_obj.Schema = parent_obj.Parent as DBSchema;
+                        }
 
                         //set database for schemas
                         if (db_obj is DBSchema)
@@ -1111,7 +1076,13 @@ order by id
 
                 //update sub tables collection
                 if (!v.ReferenceColumn.Parent.DBObjects.Contains(o))
-                    v.ReferenceColumn.Parent.DBObjects.Add(o);
+                {
+                    var owner = o.Parent;
+                    var parent = o.Parent;
+                    v.ReferenceColumn.Parent.DBObjects.Add(o); //this affects the owner and thus need to be reset
+                    o.Owner = owner as DBSchemaObject;
+                    o.Parent = parent;
+                }
 
             }
 

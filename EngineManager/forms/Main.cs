@@ -908,16 +908,17 @@ namespace EngineManager
                 Connection = schema.Connection,
                 State = DBObject.DBObjectState.New,
                 OnAlreadyExists = DBObject.DBOnExists.DoNothingElsePerformAction,
-                Schema = schema,
-                Columns = new BindingList<DBColumn> {
+                Schema = schema                
+            };
+
+            lookup_table.Columns.AddRange(new List<DBColumn> {
                     new DBColumn { DisplayOrder = "0", Name = "id", DataType = DB.DBDataType.nvarchar, Length = 50, Nullable = false},
                     new DBColumn { DisplayOrder = "1", Name = "name", DataType = DB.DBDataType.nvarchar, Length = 50, Nullable = false},
                     new DBColumn { DisplayOrder = "2", Name = "description", DataType = DB.DBDataType.nvarchar, Length = 100, Nullable = true},
                     new DBColumn { DisplayOrder = "3", Name = "icon", DataType = DB.DBDataType.nvarchar, Length = 50, Nullable = true, UserDataType = "iconclass"},
                     new DBColumn { DisplayOrder = "4", Name = "color", DataType = DB.DBDataType.nvarchar, Length = 50, Nullable = true, UserDataType = "color"},
                     new DBColumn { DisplayOrder = "5", Name = "display_order", DataType = DB.DBDataType.@int, Length = 4, Nullable = true, UserDataType = "displayorder"}
-                }
-            };
+                });
 
             var form = new InputForm() { Object = lookup_table };
             form.FormClosing += NewLookupTableFormClosing;

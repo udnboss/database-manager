@@ -42,25 +42,16 @@ namespace EngineManager
 
             this.BasicProcedures = new MyBindingList<BasicProcedure>(this);           
         }
-
-		void SubCollections_AddingNew(object sender, AddingNewEventArgs e)
-		{
-			var o = e.NewObject as DBSchemaObject;
-			o.Owner = this;
-			o.Schema = Schema;
-			o.Database = Database;
-			o.Connection = Connection;
-		}
-       
+     
 
         public Workflow Workflow { get; set; }
 
         public BindingList<SecurityPolicy> AvailablePolicies { get; set; }
 
         //related columns and security policies
-        public BindingList<AdditionalColumn> AdditionalRelatedColumns { get; set; }
-        public BindingList<AdditionalComputedColumn> AdditionalComputedColumns { get; set; }
-        public BindingList<SecurityPolicyQuestion> SecurityPolicyQuestions { get; set; }
+        public MyBindingList<AdditionalColumn> AdditionalRelatedColumns { get; set; }
+        public MyBindingList<AdditionalComputedColumn> AdditionalComputedColumns { get; set; }
+        public MyBindingList<SecurityPolicyQuestion> SecurityPolicyQuestions { get; set; }
 
         [Category("Security")]
         [ShowInManage(true)]
@@ -76,7 +67,7 @@ namespace EngineManager
         public SecurityPolicy DeletePolicy { get; set; }
         [Category("Validation")]
         [ShowInManage(true)]
-        public BindingList<Validator> Validators { get; set; }
+        public MyBindingList<Validator> Validators { get; set; }
 
         public enum SortDirections { Ascending, Descending }
 
@@ -98,25 +89,14 @@ namespace EngineManager
         }
 
         [Browsable(false)]
-        public BindingList<DBStoredProcedure> Business { get; set; }
+        public MyBindingList<DBStoredProcedure> Business { get; set; }
 
-        private BindingList<DBColumn> columns = new BindingList<DBColumn>();
+        
         //[TypeConverter(typeof(ExpandableObjectConverter))]
         [Browsable(false)]
-        public BindingList<DBColumn> Columns { 
-            get { return columns; } 
-            set { columns = value; 
-                foreach(var c in columns)
-                {
-                    c.Parent = this;
-                    c.State = DBObjectState.New;
-                    c.Action = DB.DBAction.Alter;
-                    c.Connection = this.Connection;
-                    c.Schema = this.Schema;
-
-                    this.CombinedColumns.Add(c);
-                }           
-            } 
+        public MyBindingList<DBColumn> Columns {
+            get;
+            set;          
         }
 
         [Browsable(true), ShowInTree(false)]
@@ -230,12 +210,12 @@ namespace EngineManager
         [DisplayName("Row Actions")]
         [Browsable(false)]
         [ShowInManage(true)]
-        public BindingList<RowAction> RowActions { get; set; }
+        public MyBindingList<RowAction> RowActions { get; set; }
 
         [Browsable(false)]
-        public BindingList<DBView> Policies { get; set; }
+        public MyBindingList<DBView> Policies { get; set; }
         [Browsable(false)]
-        public BindingList<DBFKConstraint> ForeignKeys { get; set; }
+        public MyBindingList<DBFKConstraint> ForeignKeys { get; set; }
         
         private bool use_history;
         [DataMember, Description("Enable History and show columns for created date, created by, updated by, and last modified date")]
@@ -404,23 +384,23 @@ namespace EngineManager
         public enum ProcedureTypes { Business }
 
         [Browsable(false)]
-        public BindingList<DBCheckConstraint> CheckConstraints { get; set; }
+        public MyBindingList<DBCheckConstraint> CheckConstraints { get; set; }
         [Browsable(false)]
-        public BindingList<DBDefaultConstraint> DefaultConstraints { get; set; }
+        public MyBindingList<DBDefaultConstraint> DefaultConstraints { get; set; }
         [Browsable(false)]
-        public BindingList<TriggerConstraint> TriggerConstraints { get; set; }
+        public MyBindingList<TriggerConstraint> TriggerConstraints { get; set; }
 
         [Category("Operations")]
         [ShowInManage(true)]
-        public BindingList<SQLUpdateCommand> UpdateCommands { get; internal set; }
+        public MyBindingList<SQLUpdateCommand> UpdateCommands { get; internal set; }
         [Category("Operations")]
         [ShowInManage(true)]
-        public BindingList<SQLInsertCommand> InsertCommands { get; internal set; }
+        public MyBindingList<SQLInsertCommand> InsertCommands { get; internal set; }
         [Category("Operations")]
         [ShowInManage(true)]
-        public BindingList<SQLDeleteCommand> DeleteCommands { get; internal set; }
+        public MyBindingList<SQLDeleteCommand> DeleteCommands { get; internal set; }
         [Category("Operations")]
         [ShowInManage(true)]
-        public BindingList<BasicProcedure> BasicProcedures { get; private set; }
+        public MyBindingList<BasicProcedure> BasicProcedures { get; private set; }
     }
 }

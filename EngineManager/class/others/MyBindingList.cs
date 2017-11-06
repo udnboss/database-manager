@@ -34,7 +34,12 @@ namespace EngineManager
 		{
 			var o = item as DBObject;
 			var so = item as DBSchemaObject;
-			
+
+
+            if (o is DBFKConstraint)
+                if ((o as DBFKConstraint).Parent != _owner)
+                    return; //special case for FK sub relations
+
 			if(o!=null && _owner != null)
 			{
 				o.Parent = _owner; //own whatever added as sub object.

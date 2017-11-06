@@ -3,7 +3,7 @@
 namespace EngineManager
 {
     public interface IContainsColumns
-    {       
-        BindingList<DBColumn> Columns { get; set; }
+    {
+        MyBindingList<DBColumn> Columns { get; set; }
     }
 }
